@@ -1,0 +1,592 @@
+{
+	"info": {
+		"_postman_id": "075ad1aa-4163-4056-be06-ef84e2609ad1",
+		"name": "comunicacao-entre-microsservicos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "auth-api",
+			"item": [
+				{
+					"name": "Auth API Get Token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"testeuser1@gmail.com\",\n    \"password\": \"123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/user/auth",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"user",
+								"auth"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "API Status",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoVXNlciI6eyJpZCI6MSwibmFtZSI6IlVzZXIgVGVzdCIsImVtYWlsIjoidGVzdGV1c2VyQGdtYWlsLmNvbSJ9LCJpYXQiOjE2NTUzODY3OTEsImV4cCI6MTY1NTQ3MzE5MX0.wIISzmsqDZh5l0oFEvs-wdEl9uXBVwdpP36kti1e1rU",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/status",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"status"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get by E-mail",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoVXNlciI6eyJpZCI6MSwibmFtZSI6IlVzZXIgVGVzdCAxIiwiZW1haWwiOiJ0ZXN0ZXVzZXIxQGdtYWlsLmNvbSJ9LCJpYXQiOjE2NTU0Njg0MTQsImV4cCI6MTY1NTU1NDgxNH0.eBlPXezSevXBQU-i_uuSJp3_2nWPOGYt0xCYof8uUUQ",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/user/email/testeuser1@gmail.com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"user",
+								"email",
+								"testeuser1@gmail.com"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "product-api",
+			"item": [
+				{
+					"name": "Category",
+					"item": [
+						{
+							"name": "/category",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8081/api/category",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"category"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/category by ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8081/api/category/1000",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"category",
+										"1000"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/category by description",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8081/api/category/description/c",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"category",
+										"description",
+										"c"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/category",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"description\": \"Hardware\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8081/api/category",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"category"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/category",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"description\": \"Mouse\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8081/api/category/1",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"category",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/category by ID Copy",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localhost:8081/api/category/1",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"category",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Product",
+					"item": [
+						{
+							"name": "/product",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8081/api/product/",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"product",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/product by ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8081/api/product/1001",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"product",
+										"1001"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/product by name",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8081/api/product/name/harry",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"product",
+										"name",
+										"harry"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/product by supplier",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8081/api/product/supplier/1001",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"product",
+										"supplier",
+										"1001"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/product by category",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8081/api/product/category/1000",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"product",
+										"category",
+										"1000"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/product",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Memória RAM  8GB DDR4\",\n    \"quantity_available\": 3,\n    \"categoryId\": 1,\n    \"supplierId\": 3\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/product",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"product"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/product",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Memória RAM 16GB DDR4\",\n    \"quantity_available\": 10,\n    \"categoryId\": 1000,\n    \"supplierId\": 3\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/product/4",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"product",
+										"4"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/product",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Memória RAM 16GB DDR4\",\n    \"quantity_available\": 10,\n    \"categoryId\": 1000,\n    \"supplierId\": 3\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/product/4",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"product",
+										"4"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Supplier",
+					"item": [
+						{
+							"name": "/supplier",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8081/api/supplier/",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"supplier",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/supplier by ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8081/api/supplier/1000",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"supplier",
+										"1000"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/supplier by name",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8081/api/supplier/name/amazon",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"supplier",
+										"name",
+										"amazon"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/supplier",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Kabum\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8081/api/supplier",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"supplier"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/supplier",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Kabum Central\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8081/api/supplier/2",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"supplier",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/supplier",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localhost:8081/api/supplier/2",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"supplier",
+										"2"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
