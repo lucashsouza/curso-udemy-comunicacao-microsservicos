@@ -59,4 +59,7 @@ public class Product {
                 .build();
     }
 
+    public void updateStock(Integer quantity) {
+        quantityAvailable -= quantity;
+    }
 }
