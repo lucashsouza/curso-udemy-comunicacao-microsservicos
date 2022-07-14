@@ -1,8 +1,7 @@
 package br.com.lucahsouza.productapi.modules.product.controller;
 
 import br.com.lucahsouza.productapi.config.exception.SuccessResponse;
-import br.com.lucahsouza.productapi.modules.product.dto.ProductRequest;
-import br.com.lucahsouza.productapi.modules.product.dto.ProductResponse;
+import br.com.lucahsouza.productapi.modules.product.dto.*;
 import br.com.lucahsouza.productapi.modules.product.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -41,9 +40,19 @@ public class ProductController {
         return productService.findByCategoryId(categoryId);
     }
 
+    @GetMapping("{id}/sales")
+    public ProductSalesResponse findProductBySales(@PathVariable Integer id) {
+        return productService.findProductSales(id);
+    }
+
     @PostMapping
     public ProductResponse save(@RequestBody ProductRequest request) {
         return productService.save(request);
+    }
+
+    @PostMapping("check-stock")
+    public SuccessResponse checkProductsStock(@RequestBody ProductCheckStockRequest request) {
+        return productService.checkProductsStock(request);
     }
 
     @PutMapping("{id}")
